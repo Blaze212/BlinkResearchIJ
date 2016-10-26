@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Created by barto on 9/24/2016.
  */
 public class GraphNNInput {
-    int HIGH = 500000;
+    int HIGH = 0;
 
     ArrayList<Double> timestamps = new ArrayList<Double>();
     ArrayList<Double> leftPoints= new ArrayList<Double>();;
@@ -25,14 +25,14 @@ public class GraphNNInput {
     }
 
     public GraphNNInput() {
-        readBlinksFile("C:\\Users\\barto\\BlinkResearch\\Marked-Video-Files\\BuildingBlocks\\BartonStudy3Marked.csv");
+        readBlinksFile("C:\\Users\\barto\\OneDrive\\Documents\\School Fall 2016\\Research\\Study 2\\MaryKateBlinks\\FixedMaryKateBlinks.csv");
         expandMarked();
         display();
     }
 
     public void display(){
         if(HIGH ==0)
-            HIGH = blinks.size();
+            HIGH = timestamps.size();
 
         Plot2DPanel panel = new Plot2DPanel();
 
@@ -44,11 +44,11 @@ public class GraphNNInput {
             rightPointsA[i]=rightPoints.get(i);
             timestampsA[i] = timestamps.get(i);
         }
-        double[] rightblinks = makeBlinksOnlyRight();
-        double[] leftblinks = makeBlinksOnlyLeft();
+        //double[] rightblinks = makeBlinksOnlyRight();
+        //double[] leftblinks = makeBlinksOnlyLeft();
 
         //panel.addLinePlot("Left", Color.red, timestampsA, leftPointsA);
-        panel.addLinePlot("Left", Color.red, timestampsA, rightblinks);
+        //panel.addLinePlot("Left", Color.red, timestampsA, rightblinks);
         panel.addLinePlot("Right", Color.blue, timestampsA, rightPointsA);
         //panel.addLinePlot("Right", Color.orange, timestamps, absDiff);
 
@@ -75,10 +75,10 @@ public class GraphNNInput {
             String thisInfoString = scanner.nextLine();
             String[] pieces = thisInfoString.split(",");
 
-            timestamps.add(Double.parseDouble(pieces[0]));
+            timestamps.add(Double.parseDouble(pieces[2]));
             leftPoints.add(Double.parseDouble(pieces[0]));
             rightPoints.add(Double.parseDouble(pieces[1]));
-            blinks.add(Double.valueOf(pieces[3]).intValue());
+            //blinks.add(Double.valueOf(pieces[3]).intValue());
 
 
             //System.out.printf("P: %s %s %s \n", pieces[0], pieces[1], pieces[2]);

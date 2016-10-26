@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 public class AnalyzeRawBlinks {
-	String filePath = "C:\\Users\\barto\\BlinkResearch\\Marked-Video-Files\\BartonEyesSpacedFastEnd1.xls";
+	String filePath = "C:\\Users\\barto\\OneDrive\\Documents\\School Fall 2016\\Research\\Study 2\\MaryKateBlinks\\FixedMaryKateBlinks.csv";
 	double[] timestamps;
 	double[] leftPoints;
 	double[] rightPoints;
@@ -142,9 +142,9 @@ public class AnalyzeRawBlinks {
 			String thisInfoString = scanner.nextLine();
 			String[] pieces = thisInfoString.split("\t");
 			
-			time.add(Double.parseDouble(pieces[0]));
-			left.add(Double.parseDouble(pieces[1]));
-			right.add(Double.parseDouble(pieces[2]));
+			time.add(Double.parseDouble(pieces[2]));
+			left.add(Double.parseDouble(pieces[0]));
+			right.add(Double.parseDouble(pieces[1]));
 			
 			//System.out.printf("P: %s %s %s \n", pieces[0], pieces[1], pieces[2]);
 		}
